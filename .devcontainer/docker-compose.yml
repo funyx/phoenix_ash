@@ -1,0 +1,47 @@
+networks:
+  admin_net:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 169.254.178.0/24
+          gateway: 169.254.178.1
+services:
+  workspace:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    platform: linux/arm64
+    ipc: host
+    volumes:
+      - source: extensions
+        target: /home/vscode/.vscode-server/extensions
+        type: volume
+      - source: server-insiders
+        target: /home/vscode/.vscode-server-insiders/extensions
+        type: volume
+      - source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        type: bind
+      - ..:/workspace:cached
+    env_file:
+      - .env
+    environment:
+      - POSTGRES_HOST=db.postgres.com
+    networks:
+      admin_net:
+  postgres:
+    image: postgis/postgis
+    restart: always
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    env_file:
+      - .env
+    networks:
+      admin_net:
+        aliases:
+          - db.postgres.com
+volumes:
+  extensions:
+  server-insiders:
+  db-data:

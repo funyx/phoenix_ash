@@ -1,0 +1,22 @@
+{
+	"name": "Admin",
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "workspace",
+	"workspaceFolder": "/workspace",
+	"remoteUser": "vscode:vscode",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"dbaeumer.vscode-eslint",
+				"ms-azuretools.vscode-docker",
+				"oderwat.indent-rainbow",
+				"vscode-icons-team.vscode-icons",
+				"Gruntfuggly.todo-tree",
+				"pgourlain.erlang",
+				"JakeBecker.elixir-ls",
+				"animus-coop.vscode-elixir-mix-formatter",
+				"martinhrvn.ash-framework-snippets"
+			]
+		}
+	}
+}
