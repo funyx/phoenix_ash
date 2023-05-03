@@ -6,7 +6,7 @@ config :phoenix_ash,
   ecto_repos: [PhoenixAsh.Repo]
 
 config :phoenix_ash,
-  ash_apis: [PhoenixAsh.Blog]
+  ash_apis: [PhoenixAsh.Blog, PhoenixAsh.Account]
 
 config :phoenix_ash, PhoenixAshWeb.Endpoint,
   url: [host: "localhost"],

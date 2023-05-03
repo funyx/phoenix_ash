@@ -137,6 +137,12 @@ RUN chown ${SERVER_USER}:${SERVER_GROUP} ${SERVER_HOME}/.zshrc
 COPY ./library-scripts/elixir-install.sh /tmp/library-scripts/elixir-install.sh
 RUN /bin/bash /tmp/library-scripts/elixir-install.sh
 
+# [directory to install nvm] [node version to install (use "none" to skip)] [non-root user] [Update rc files flag] [install node-gyp deps]
+COPY ./library-scripts/node-debian.sh /tmp/library-scripts/node-debian.sh
+RUN bash /tmp/library-scripts/node-debian.sh "${NVM_DIR}" "${NODE_VERSION}" "${SERVER_USER}"
+RUN chown -R ${SERVER_USER}:${SERVER_GROUP} ${NVM_DIR}
+
+
 RUN mkdir -p /var/tmp/history && chown -R ${SERVER_USER}:${SERVER_GROUP} /var/tmp/history
 ENV ERL_AFLAGS="-kernel shell_history enabled -kernel shell_history_path '\"/var/tmp/history/erlang.history\"'"
 

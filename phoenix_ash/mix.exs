@@ -52,7 +52,9 @@ defmodule PhoenixAsh.MixProject do
       {:plug_cowboy, "~> 2.5"},
       {:ash, "~> 2.9.0"},
       {:ash_postgres, "~> 1.3.22"},
-      {:ash_phoenix, "~> 1.2.13"}
+      {:ash_phoenix, "~> 1.2.13"},
+      {:ash_authentication, "~> 3.10.8"},
+      {:ash_authentication_phoenix, "~> 1.7.2"}
     ]
   end
 

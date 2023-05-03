@@ -16,10 +16,10 @@ defmodule PhoenixAsh.Application do
       {Phoenix.PubSub, name: PhoenixAsh.PubSub},
       # Start Finch
       {Finch, name: PhoenixAsh.Finch},
+      {AshAuthentication.Supervisor, otp_app: :phoenix_ash},
       # Start the Endpoint (http/https)
       PhoenixAshWeb.Endpoint
       # Start a worker by calling: PhoenixAsh.Worker.start_link(arg)
-      # {PhoenixAsh.Worker, arg}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html

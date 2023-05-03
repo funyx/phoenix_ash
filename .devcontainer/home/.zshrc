@@ -7,12 +7,12 @@ plugins=(
     # aws
     git
     # github
-    # node
-    # npm
-    # nvm
+    node
+    npm
+    nvm
     # terraform
     themes
-    # yarn
+    yarn
     zsh-interactive-cd
 )
 
